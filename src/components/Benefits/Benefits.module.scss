@@ -1,0 +1,227 @@
+@import "src/assets/scss/abstracts/_variables";
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/images/benefitsfondo.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding-top: 5rem;
+  padding-bottom: 20rem;
+
+  .container {
+    margin-left: 11.2rem;
+
+    @include responsive("xxL") {
+      margin-left: 10.5rem;
+    }
+
+    @include responsive("xl") {
+      margin-left: 9.5rem;
+    }
+
+    @include responsive("laptop") {
+      margin-left: 8rem;
+    }
+
+    @include responsive("md") {
+      margin-left: 7rem;
+    }
+
+    @include responsive("sm") {
+      margin-left: 5rem;
+      padding: 2rem;
+    }
+
+    @include responsive("xs") {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 0;
+    }
+
+    @include responsive("xlMb") {
+      padding: 0 2rem;
+    }
+
+    .title {
+      font-family: $font-pt;
+      font-size: 4.8rem;
+      letter-spacing: -0.1rem;
+      color: $background-1;
+      margin-bottom: 5rem;
+
+      @include responsive("laptop") {
+        font-size: 4.6rem;
+      }
+
+      @include responsive("sm") {
+        font-size: 4.3rem;
+      }
+
+      @include responsive("smMb") {
+        font-size: 3.8rem;
+      }
+    }
+
+    .text {
+      font-family: $font-nunito;
+      color: $background-1;
+      font-size: 2.2rem;
+
+      @include responsive("laptop") {
+        font-size: 2rem;
+      }
+
+      @include responsive("md") {
+        font-size: 1.9rem;
+      }
+
+      @include responsive("sm") {
+        font-size: 1.7rem;
+      }
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+
+      @include responsive("xs") {
+        flex-direction: column;
+        gap: 5rem;
+      }
+
+      .stepContainer {
+        margin-right: 12rem;
+
+        @include responsive("xxL") {
+          margin-right: 10.5rem;
+        }
+
+        @include responsive("laptop") {
+          margin-right: 4rem;
+        }
+
+        @include responsive("sm") {
+          margin-right: 3rem;
+        }
+
+        @include responsive("xs") {
+          margin-right: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .logoImage {
+          margin-bottom: 2rem;
+
+          @include responsive("xl") {
+            height: 15rem;
+            width: 26rem;
+          }
+
+          @include responsive("laptopL") {
+            height: 13rem;
+            width: 23rem;
+          }
+
+          @include responsive("laptop") {
+            height: 12rem;
+            width: 22rem;
+          }
+
+          @include responsive("md") {
+            height: 11rem;
+            width: 20rem;
+          }
+
+          @include responsive("sm") {
+            height: 10rem;
+            width: 20rem;
+          }
+        }
+      }
+    }
+    .startBtn {
+      font-family: $font-nunito;
+      margin-right: 8rem;
+      display: inline-block;
+      padding: 1.7rem 2rem;
+      border: none;
+      border-radius: 3rem;
+      color: $colorWhite;
+      background-color: $color2;
+      font-size: 1.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 15.2rem;
+      margin: 5rem 0 8rem 0;
+
+      @include responsive("xxL") {
+        font-size: 1.5rem;
+      }
+
+      @include responsive("xl") {
+        font-size: 1.4rem;
+      }
+    }
+
+    .startBtn:hover {
+      color: $background-2;
+      background-color: $background-1;
+    }
+
+    .bottom {
+      .blackText {
+        font-family: $font-pt;
+        color: $color4;
+        font-size: 2.2rem;
+        line-height: 28.8px;
+
+        @include responsive("laptop") {
+          font-size: 2rem;
+        }
+
+        @include responsive("sm") {
+          font-size: 1.7rem;
+        }
+
+        @include responsive("xlMb") {
+          font-size: 1.6rem;
+        }
+
+        @include responsive("smMb") {
+          font-size: 1.3rem;
+        }
+      }
+
+      .listContainer {
+        margin-left: 5rem;
+        max-width: 50rem;
+
+        @include responsive("sm") {
+          margin-left: 3rem;
+        }
+
+        @include responsive("xlMb") {
+          margin-left: 2.5rem;
+        }
+      }
+
+      .listItem {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .circle {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background-color: $color4;
+        margin-right: 1rem;
+      }
+    }
+  }
+}

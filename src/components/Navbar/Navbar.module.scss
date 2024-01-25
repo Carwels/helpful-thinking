@@ -1,0 +1,264 @@
+@import "src/assets/scss/abstracts/_variables";
+
+.main {
+  width: 100%;
+  min-height: 12rem;
+  font-family: $font-roboto;
+  background-color: $background-1;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 6px -3px rgba(0, 0, 0, 0.1);
+
+  @include responsive("xxL") {
+    // background-color: red;
+    min-height: 11rem;
+  }
+
+  @include responsive("xl") {
+    // background-color: green;
+    min-height: 10rem;
+  }
+
+  @include responsive("laptopL") {
+    // background-color: black;
+    min-height: 10rem;
+  }
+
+  @include responsive("laptop") {
+    // background-color: blue;
+    height: 12rem;
+  }
+
+  @include responsive("md") {
+    // background-color: orange;
+    min-height: 10rem;
+  }
+
+  @include responsive("sm") {
+    height: 8rem;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @include responsive("md") {
+      justify-content: space-between;
+    }
+
+    .logoContainer {
+      padding: 2rem 2rem 2rem 11.2rem;
+
+      @include responsive("xxL") {
+        padding-left: 10.5rem;
+      }
+
+      @include responsive("xl") {
+        padding-left: 8.5rem;
+      }
+
+      @include responsive("laptopL") {
+        padding-left: 7.3rem;
+      }
+
+      @include responsive("laptop") {
+        padding-left: 6.3rem;
+      }
+
+      @include responsive("md") {
+        padding-left: 5rem;
+      }
+
+      @include responsive("sm") {
+        padding-left: 2.5rem;
+      }
+
+      .logoImage {
+        height: auto;
+        max-width: 25rem; /* MIRAR AQUI PARA LA IMAGEN */
+
+        @include responsive("sm") {
+          height: 5rem;
+          width: 14rem;
+        }
+      }
+    }
+
+    .navContainer {
+      margin-left: auto;
+      a {
+        color: $color1;
+        font-size: 1.8rem;
+        margin-right: 3rem;
+        font-family: $font-nunito;
+        text-decoration: none;
+        font-weight: 700;
+
+        @include responsive("xxL") {
+          font-size: 1.5rem;
+        }
+
+        @include responsive("xl") {
+          margin-right: 2.8rem;
+          font-size: 1.4rem;
+        }
+
+        @include responsive("laptopL") {
+          margin-right: 2.6rem;
+          font-size: 1.3rem;
+        }
+
+        @include responsive("md") {
+          margin-right: 2.4rem;
+          font-size: 1.2rem;
+        }
+
+        @include responsive("sm") {
+          margin-right: 1.5rem;
+          font-size: 1.2rem;
+        }
+      }
+
+      a:hover {
+        color: $color2;
+      }
+    }
+
+    .startBtn {
+      font-family: $font-nunito;
+      margin-right: 8rem;
+      display: inline-block;
+      padding: 1.3rem 2rem;
+      border: none;
+      border-radius: 3rem;
+      color: $colorWhite;
+      background-color: $color2;
+      font-size: 1.8rem;
+      font-weight: 700;
+      cursor: pointer;
+
+      @include responsive("xxL") {
+        margin-right: 3.5rem;
+        font-size: 1.5rem;
+      }
+
+      @include responsive("xlUp") {
+        margin-right: 2.5rem;
+        font-size: 1.4rem;
+      }
+
+      @include responsive("xl") {
+        margin-right: 2.5rem;
+        font-size: 1.4rem;
+      }
+
+      @include responsive("md") {
+        margin-right: 2.5rem;
+        font-size: 1.2rem;
+      }
+
+      @include responsive("sm") {
+        margin-right: 1.8rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    .startBtn:hover {
+      color: $background-1;
+      background-color: $background-2;
+    }
+  }
+
+  .hamburger {
+    position: relative;
+    display: block;
+    width: 3.5rem;
+    cursor: pointer;
+    margin-right: 3rem;
+
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+
+    @include responsive("mdUp") {
+      display: none;
+    }
+  }
+
+  .hamburger .bar,
+  .hamburger:after,
+  .hamburger:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.5rem;
+    background-color: #fff;
+    margin: 6px 0px;
+    transition: 0.4s;
+  }
+
+  .hamburger.isActive:before {
+    transform: rotate(-45deg) translate(-8px, 6px);
+  }
+
+  .hamburger.isActive:after {
+    transform: rotate(45deg) translate(-9px, -8px);
+  }
+
+  .hamburger.isActive .bar {
+    opacity: 0;
+  }
+
+  .mobileNav {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+    background-color: $background-1;
+    padding-top: 15rem;
+    transition: top 0.8s ease;
+    z-index: -1;
+
+    @include responsive("smUp") {
+      display: none;
+    }
+
+    @include responsive("smMb") {
+      top: -110%;
+    }
+  }
+
+  .mobileNav.isActive {
+    top: 0;
+
+    @include responsive("smMb") {
+      top: -4rem;
+    }
+  }
+
+  .mobileNav a {
+    display: block;
+    width: 100%;
+    margin: 0 auto 1.6rem;
+    text-align: center;
+    padding: 1.2rem 1.6rem;
+    font-size: 2.9rem;
+    color: $color1;
+    text-decoration: none;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    transition: font-size 0.3s ease;
+
+    &:active {
+      color: $color2;
+    }
+  }
+}

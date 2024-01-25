@@ -1,0 +1,154 @@
+@import "src/assets/scss/abstracts/_variables";
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: $background-2;
+  padding: 5rem 0 5rem 11.2rem;
+  background-image: url("../../assets/images//spiral.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: right;
+
+  @include responsive("xxL") {
+    padding: 5rem 0 5rem 10.5rem;
+  }
+
+  @include responsive("xl") {
+    padding: 5rem 0 5rem 9.5rem;
+  }
+
+  @include responsive("laptop") {
+    padding: 5rem 0 5rem 8rem;
+  }
+
+  @include responsive("md") {
+    padding: 5rem 0 5rem 7rem;
+  }
+
+  @include responsive("sm") {
+    background-image: none;
+    padding: 3rem;
+  }
+}
+
+.container {
+  @include responsive("sm") {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.title {
+  font-family: $font-pt;
+  font-size: 4.8rem;
+  letter-spacing: -0.1rem;
+  color: $color5;
+  margin-bottom: 6rem;
+
+  @include responsive("laptop") {
+    font-size: 4.6rem;
+  }
+
+  @include responsive("sm") {
+    font-size: 4.3rem;
+    text-align: center;
+  }
+}
+
+.details {
+  width: 58rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: $background-2;
+  border: solid;
+  border-color: $color5;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: max-height 0.9s ease;
+  max-height: 5rem;
+
+  @include responsive("laptop") {
+    width: 45rem;
+  }
+
+  @include responsive("sm") {
+    width: 40rem;
+  }
+
+  @include responsive("xs") {
+    width: 35rem;
+  }
+
+  @include responsive("xlMb") {
+    width: 30rem;
+  }
+}
+
+.details[open] {
+  max-height: 15rem;
+}
+
+.summary {
+  cursor: pointer;
+}
+
+.summaryTitle {
+  display: inline;
+  margin-left: 1rem;
+  font-size: 1.8rem;
+  font-family: $font-nunito;
+  color: $color4;
+
+  @include responsive("laptop") {
+    font-size: 1.6rem;
+  }
+}
+
+.text {
+  margin: 2.3rem 0 0 0.5rem;
+  font-size: 1.8rem;
+  font-family: $font-nunito;
+  color: $color4;
+  @include responsive("laptop") {
+    font-size: 1.6rem;
+  }
+}
+
+.subtitle {
+  font-family: $font-nunito;
+  color: $color5;
+  font-size: 2.1rem;
+  text-align: center;
+  max-width: 50rem;
+  margin-top: 3rem;
+
+  @include responsive("laptop") {
+    font-size: 2rem;
+  }
+
+  @include responsive("sm") {
+    max-width: 40rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.mail {
+  font-family: $font-nunito;
+  color: $color5;
+  font-size: 2.1rem;
+  text-align: center;
+  max-width: 50rem;
+  font-weight: bold;
+
+  @include responsive("laptop") {
+    font-size: 2rem;
+  }
+
+  @include responsive("sm") {
+    max-width: 40rem;
+    font-size: 1.8rem;
+  }
+}

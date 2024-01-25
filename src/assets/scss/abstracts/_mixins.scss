@@ -1,0 +1,78 @@
+@mixin responsive($media) {
+  @if $media == smMb {
+    @media (max-width: 320.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == mdMb {
+    @media (max-width: 375.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == xlMb {
+    @media (max-width: 425.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == xlMbMin {
+    @media (min-width: 425.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == xs {
+    @media (max-width: 575.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == xsUp {
+    @media (min-width: 575.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == sm {
+    @media (max-width: 768.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == smUp {
+    @media (min-width: 768.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == md {
+    @media (max-width: 991.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == mdUp {
+    @media (min-width: 991.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == laptop {
+    @media (max-width: 1024.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == laptopL {
+    @media (max-width: 1110.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == xl {
+    @media (max-width: 1199.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == xlUp {
+    @media (min-width: 1199.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  } @else if $media == xxL {
+    @media (max-width: 1300.98px) {
+      @content;
+      transition: all 0.3s;
+    }
+  }
+}

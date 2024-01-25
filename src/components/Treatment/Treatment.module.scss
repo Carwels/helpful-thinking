@@ -1,0 +1,166 @@
+@import "src/assets/scss/abstracts/_variables";
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: $background-3;
+  font-family: $font-vietnam;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 5rem 5rem 11.2rem;
+  justify-content: center;
+
+  @include responsive("xxL") {
+    padding: 5rem 5rem 5rem 10.5rem;
+  }
+
+  @include responsive("xl") {
+    padding: 5rem 5rem 5rem 9.5rem;
+  }
+
+  @include responsive("laptop") {
+    padding: 5rem;
+  }
+
+  @include responsive("md") {
+    padding: 5rem 5rem 5rem 7rem;
+  }
+
+  @include responsive("sm") {
+    padding: 5rem 2rem;
+  }
+
+  @include responsive("xlMb") {
+    padding: 3rem 1rem;
+  }
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include responsive("sm") {
+    align-items: center;
+  }
+}
+
+.title {
+  font-size: 4.8rem;
+  color: $color3;
+  letter-spacing: -0.1rem;
+  margin-bottom: 6rem;
+
+  @include responsive("laptop") {
+    font-size: 4.6rem;
+  }
+
+  @include responsive("sm") {
+    font-size: 3.7rem;
+  }
+
+  @include responsive("xlMb") {
+    font-size: 3.4rem;
+  }
+
+  @include responsive("smMb") {
+    font-size: 3rem;
+  }
+}
+
+.cardsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include responsive("sm") {
+    flex-direction: row;
+  }
+}
+
+.top,
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5rem;
+
+  @include responsive("sm") {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 21.1rem;
+  width: 23.6rem;
+
+  @include responsive("sm") {
+    height: 20rem;
+    width: 18rem;
+    margin-right: 0;
+  }
+
+  @include responsive("xlMb") {
+    height: 18.1rem;
+    width: 15rem;
+    margin-right: 0;
+  }
+}
+
+.iconImage {
+  height: 7.5rem;
+  width: 5.5rem;
+  margin-bottom: 2rem;
+
+  @include responsive("sm") {
+    height: 6.5rem;
+    width: 4.5rem;
+  }
+
+  @include responsive("xlMb") {
+    height: 5.5rem;
+    width: 3.5rem;
+  }
+
+  @include responsive("smMb") {
+    height: 5rem;
+    width: 3rem;
+  }
+}
+
+.iconImage2 {
+  width: 5.5rem;
+  height: 2.4rem;
+}
+
+.text {
+  color: $color1;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+
+  @include responsive("laptop") {
+    font-size: 1.8rem;
+  }
+
+  @include responsive("sm") {
+    font-size: 1.5rem;
+    width: 15rem;
+    padding: 1.5rem;
+  }
+
+  @include responsive("xlMb") {
+    font-size: 1.1rem;
+  }
+
+  @include responsive("smMb") {
+    font-size: 1rem;
+    width: auto;
+  }
+}

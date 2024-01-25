@@ -1,0 +1,236 @@
+@import "src/assets/scss/abstracts/_variables";
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: $background-1;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  max-width: 1300px;
+  padding: 3rem 0 6rem 0;
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+
+  @include responsive("sm") {
+    flex-direction: column;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  margin-right: 5rem;
+
+  @include responsive("smMb") {
+    margin-right: 0;
+  }
+}
+
+.logoImage {
+  height: 30rem;
+  width: 30rem;
+
+  @include responsive("sm") {
+    margin-bottom: 2rem;
+  }
+
+  @include responsive("smMb") {
+    height: 20rem;
+    width: 20rem;
+  }
+}
+
+.right {
+  @include responsive("sm") {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.descriptionBot {
+  font-family: $font-vietnam;
+  font-size: 1.8rem;
+  color: $color2;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  margin-bottom: 0.5rem;
+
+  @include responsive("laptop") {
+    font-size: 1.7rem;
+  }
+
+  @include responsive("laptop") {
+    font-size: 1.6rem;
+  }
+
+  @include responsive("xlMb") {
+    font-size: 1.3rem;
+  }
+}
+
+.title {
+  font-family: $font-pt;
+  font-size: 4.8rem;
+  letter-spacing: -0.1rem;
+  color: $background-2;
+  margin-bottom: 2.5rem;
+
+  @include responsive("laptop") {
+    font-size: 4.6rem;
+  }
+
+  @include responsive("sm") {
+    font-size: 4rem;
+  }
+
+  @include responsive("xs") {
+    font-size: 3.3rem;
+    padding: 0 1rem;
+  }
+
+  @include responsive("xlMb") {
+    font-size: 3.2rem;
+    text-align: center;
+  }
+}
+
+.subtitle {
+  font-family: $font-nunito;
+  font-size: 2.1rem;
+  color: $background-2;
+  margin-bottom: 4rem;
+
+  @include responsive("laptop") {
+    font-size: 2rem;
+  }
+
+  @include responsive("sm") {
+    font-size: 1.9rem;
+  }
+
+  @include responsive("xs") {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  @include responsive("xlMb") {
+    font-size: 1.5rem;
+  }
+}
+
+.boldText {
+  font-weight: bold;
+}
+
+.description {
+  font-family: $font-nunito;
+  font-size: 2.1rem;
+  color: $background-2;
+  line-height: 2.88rem;
+  margin-bottom: 5rem;
+
+  @include responsive("laptop") {
+    font-size: 2rem;
+  }
+
+  @include responsive("sm") {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  @include responsive("xs") {
+    max-width: 55rem;
+    font-size: 1.9rem;
+  }
+
+  @include responsive("xlMb") {
+    max-width: 33rem;
+    font-size: 1.6rem;
+  }
+}
+
+.vision {
+  font-family: $font-nunito;
+  color: $color2;
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 50rem;
+  margin-bottom: 5rem;
+
+  @include responsive("laptop") {
+    font-size: 1.9rem;
+  }
+
+  @include responsive("xlMb") {
+    max-width: 38rem;
+    font-size: 1.7rem;
+  }
+
+  @include responsive("smMb") {
+    max-width: auto;
+    font-size: 1.5rem;
+  }
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-evenly;
+
+  @include responsive("xs") {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+.btn {
+  font-family: $font-nunito;
+  margin-right: 8rem;
+  display: inline-block;
+  padding: 2rem 4rem;
+  border-style: solid;
+  border-width: 0.1rem 0.1rem 0.1rem 0.1rem;
+  border-color: $color2;
+  border-radius: 3.2rem;
+  color: $color2;
+  background-color: $background-1;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  @include responsive("xxL") {
+    font-size: 1.5rem;
+  }
+
+  @include responsive("xl") {
+    font-size: 1.4rem;
+  }
+
+  @include responsive("laptop") {
+    font-size: 1.3rem;
+    padding: 2rem 2rem;
+  }
+
+  @include responsive("sm") {
+    margin-right: 6rem;
+  }
+
+  @include responsive("xs") {
+    margin-right: 0;
+  }
+}
+
+.btn:hover {
+  color: $colorWhite;
+  background-color: $color2;
+}

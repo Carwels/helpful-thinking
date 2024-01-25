@@ -1,0 +1,221 @@
+@import "src/assets/scss/abstracts/_variables";
+
+.main {
+  height: 100%;
+  width: 100%;
+  background-color: $background-1;
+  background-image: url("../../assets/images/helpful-fondo.png");
+  background-size: auto 100%;
+  background-position: calc(100% + 49rem) center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+
+  color: $color1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5rem 0;
+  
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(190, 155, 128, 0.2);
+    z-index: -1;
+  }
+
+  @include responsive("xxL") {
+    padding: 4.8rem 0;
+    background-size: 83%;
+    background-position: calc(100% + 49rem) center;
+  }
+
+  @include responsive("laptop") {
+    padding: 4rem 0;
+    background-size: 90%;
+    background-position: calc(100% + 44rem) center;
+  }
+
+  @include responsive("sm") {
+    padding: 2rem;
+    background-image: none;
+  }
+
+  @include responsive("smMb") {
+    padding: 1.8rem 1.8rem;
+  }
+
+  .container {
+    .left {
+      margin-left: 11.2rem;
+      max-width: 60rem;
+      line-height: 5.8rem;
+
+      @include responsive("xxL") {
+        margin-left: 10.5rem;
+      }
+
+      @include responsive("xl") {
+        margin-left: 9.5rem;
+      }
+
+      @include responsive("laptop") {
+        margin-left: 8rem;
+      }
+
+      @include responsive("md") {
+        margin-left: 7rem;
+      }
+
+      @include responsive("sm") {
+        margin-left: 5rem;
+      }
+
+      @include responsive("xlMb") {
+        margin-left: 2.5rem;
+      }
+
+      @include responsive("mdMb") {
+        margin-left: 1.5rem;
+      }
+
+      @include responsive("smMb") {
+        margin-left: 0;
+      }
+
+      .subtitle {
+        font-family: $font-pt;
+        font-size: 4.5rem;
+        letter-spacing: 0.2rem;
+        margin-bottom: 1.3rem;
+
+        @include responsive("laptop") {
+          font-size: 4rem;
+        }
+
+        @include responsive("md") {
+          font-size: 3.8rem;
+        }
+
+        @include responsive("sm") {
+          font-size: 3.4rem;
+        }
+
+        @include responsive("xlMb") {
+          font-size: 3rem;
+        }
+
+        @include responsive("smMb") {
+          font-size: 2.5rem;
+        }
+      }
+
+      .title {
+        font-family: $font-vietnam;
+        font-size: 8rem;
+        font-weight: 600;
+        letter-spacing: -0.1rem;
+        line-height: 8.8rem;
+        margin-bottom: 0.5rem;
+
+        @include responsive("laptop") {
+          font-size: 7rem;
+        }
+
+        @include responsive("md") {
+          font-size: 6.8rem;
+        }
+
+        @include responsive("sm") {
+          font-size: 6rem;
+        }
+
+        @include responsive("xlMb") {
+          font-size: 5.5rem;
+        }
+
+        @include responsive("smMb") {
+          font-size: 4.5rem;
+        }
+      }
+
+      .description {
+        font-family: $font-vietnam;
+        font-size: 3rem;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+        margin-bottom: 0.7rem;
+
+        @include responsive("laptop") {
+          font-size: 2.8rem;
+        }
+
+        @include responsive("md") {
+          font-size: 2.7rem;
+        }
+
+        @include responsive("sm") {
+          font-size: 2.4rem;
+        }
+
+        @include responsive("xlMb") {
+          font-size: 2rem;
+        }
+
+        @include responsive("smMb") {
+          font-size: 1.8rem;
+        }
+      }
+
+      .startBtn {
+        font-family: $font-nunito;
+        margin-right: 8rem;
+        display: inline-block;
+        padding: 1.7rem 2rem;
+        border: none;
+        border-radius: 3rem;
+        color: $colorWhite;
+        background-color: $color2;
+        font-size: 1.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        width: 15.2rem;
+
+        @include responsive("xxL") {
+          font-size: 1.5rem;
+        }
+
+        @include responsive("xl") {
+          font-size: 1.4rem;
+        }
+      }
+
+      .startBtn:hover {
+        color: $background-1;
+        background-color: $background-2;
+      }
+    }
+  }
+
+  // .modalBackdrop {
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100vw;
+  //   height: 100vh;
+  //   background-color: rgba(0, 0, 0, 0.9);
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   z-index: 1000;
+  // }
+
+  // .modalContent {
+  //   max-width: 80%;
+  //   max-height: 90vh;}
+}
