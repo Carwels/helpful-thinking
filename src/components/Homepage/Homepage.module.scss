@@ -43,12 +43,25 @@
 
   @include responsive("sm") {
     padding: 2rem;
-    background-image: none;
+    // background-image: none;
+  }
+
+  @include responsive("xlMb") {
+    background-size: 48%;
+    background-position: 98%;
+    background-position-y: 95%;
   }
 
   @include responsive("smMb") {
     padding: 1.8rem 1.8rem;
   }
+
+  @include responsive("smMb") {
+    background-size: 40%;
+    background-position: 98%;
+    background-position-y: 95%;
+  }
+
 
   .container {
     .left {
@@ -77,11 +90,11 @@
       }
 
       @include responsive("xlMb") {
-        margin-left: 2.5rem;
+        margin-left: 0.5rem;
       }
 
       @include responsive("mdMb") {
-        margin-left: 1.5rem;
+        margin-left: 1rem;
       }
 
       @include responsive("smMb") {
@@ -137,6 +150,7 @@
 
         @include responsive("xlMb") {
           font-size: 5rem;
+          line-height: 5.8rem;
         }
 
         @include responsive("smMb") {

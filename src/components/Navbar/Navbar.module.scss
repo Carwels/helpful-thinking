@@ -34,11 +34,15 @@
 
   @include responsive("md") {
     // background-color: orange;
-    min-height: 10rem;
+    height: 10rem;
   }
 
   @include responsive("sm") {
     height: 8rem;
+  }
+
+  @include responsive("xlMb") {
+    height: 13rem;
   }
 
   .container {
@@ -77,13 +81,32 @@
         padding-left: 2.5rem;
       }
 
+      @include responsive("xlMb") {
+        padding-left: 2rem;
+      }
+
       .logoImage {
         height: auto;
-        max-width: 25rem; /* MIRAR AQUI PARA LA IMAGEN */
+        width: 25rem; /* MIRAR AQUI PARA LA IMAGEN */
 
         @include responsive("sm") {
           height: 5rem;
           width: 14rem;
+        }
+
+        @include responsive("xlMb") {
+          height: 12rem;
+          width: 28rem;
+        }
+
+        @include responsive("mdMb") {
+          height: 10rem;
+          width: 23rem;
+        }
+
+        @include responsive("smMb") {
+          height: 8rem;
+          width: 18rem;
         }
       }
     }
