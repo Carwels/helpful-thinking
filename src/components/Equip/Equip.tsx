@@ -7,8 +7,8 @@ import picture1 from "@/assets/images/picture1.png"
 
 function Equip() {
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.main} id="equipo">
+        <div className={styles.wrapper} id="equipo">
+            <div className={styles.main}>
                 <div className={styles.container}>
                     <div className={styles.title}>Quiénes somos</div>
                     <div className={styles.description}>
