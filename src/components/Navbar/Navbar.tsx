@@ -13,15 +13,15 @@ function Navbar() {
     // const changeBackground = () => {
     //     console.log('Window scroll event detected:', window.scrollY);
     //   };
-    
+
     //   useEffect(() => {
     //     console.log('Adding scroll event listener...');
     //     window.addEventListener('scroll', changeBackground);
-    
+
     //     // Simulate a scroll event to check if the function logs
     //     console.log('Simulating scroll event...');
     //     changeBackground();
-    
+
     //     return () => {
     //       console.log('Removing scroll event listener...');
     //       window.removeEventListener('scroll', changeBackground);
@@ -89,11 +89,13 @@ function Navbar() {
                     <div className={styles.bar}></div>
                 </button>
                 <nav className={`${styles.mobileNav} ${isActive ? styles.isActive : ''}`}>
-                    <Link href="#funcionamiento" onClick={closeMobileNav}>Funcionamiento</Link>
-                    <Link href="#tratamiento" onClick={closeMobileNav}>Áreas de tratamiento</Link>
-                    <Link href="#equipo" onClick={closeMobileNav}>Quiénes somos</Link>
-                    <Link href="#faqs" onClick={closeMobileNav}>FAQ's</Link>
-                    <Link href="#contacto" onClick={closeMobileNav}>Contacto</Link>
+                    <React.Fragment>
+                        <Link href="#funcionamiento" onClick={closeMobileNav}>Funcionamiento</Link>
+                        <Link href="#tratamiento" onClick={closeMobileNav}>Áreas de tratamiento</Link>
+                        <Link href="#equipo" onClick={closeMobileNav}>Quiénes somos</Link>
+                        <Link href="#faqs" onClick={closeMobileNav}>FAQ's</Link>
+                        <Link href="#contacto" onClick={closeMobileNav}>Contacto</Link>
+                    </React.Fragment>
                 </nav>
             </ul>
         </div>
