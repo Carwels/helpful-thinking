@@ -90,7 +90,7 @@ function Navbar() {
                 </button>
                 <nav className={`${styles.mobileNav} ${isActive ? styles.isActive : ''}`}>
                     <Link href="#funcionamiento" onClick={closeMobileNav}>Funcionamiento</Link>
-                    <Link href="#faqs" onClick={closeMobileNav}>Áreas de tratamiento</Link>
+                    <Link href="#tratamiento" onClick={closeMobileNav}>Áreas de tratamiento</Link>
                     <Link href="#equipo" onClick={closeMobileNav}>Quiénes somos</Link>
                     <Link href="#faqs" onClick={closeMobileNav}>FAQ's</Link>
                     <Link href="#contacto" onClick={closeMobileNav}>Contacto</Link>
