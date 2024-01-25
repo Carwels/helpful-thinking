@@ -37,7 +37,7 @@ function Faqs() {
                         <summary className={styles.summary}>
                             <div className={styles.summaryTitle}>¿La terapia en línea es efectiva?</div>
                         </summary>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                        <p className={styles.text}>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                     </details>
                 </div>
                 <div className={styles.subtitle}>

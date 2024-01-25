@@ -28,7 +28,7 @@
   align-items: center;
   margin-right: 5rem;
 
-  @include responsive("smMb") {
+  @include responsive("xlMb") {
     margin-right: 0;
   }
 }
