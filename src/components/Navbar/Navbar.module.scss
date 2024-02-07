@@ -1,44 +1,19 @@
 @import "src/assets/scss/abstracts/_variables";
 
 .main {
+  top: 0;
   width: 100%;
-  min-height: 12rem;
+  height: var(--navbar-height);
+  transition: height 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
   font-family: $font-roboto;
   background-color: $background-1;
   position: sticky;
-  top: 0;
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  box-shadow: 0px 4px 6px -3px rgba(0, 0, 0, 0.1);
 
-  @include responsive("xxL") {
-    // background-color: red;
-    min-height: 11rem;
-  }
-
-  @include responsive("xl") {
-    // background-color: green;
-    min-height: 10rem;
-  }
-
-  @include responsive("laptopL") {
-    // background-color: black;
-    min-height: 10rem;
-  }
-
-  @include responsive("laptop") {
-    // background-color: blue;
-    height: 12rem;
-  }
-
-  @include responsive("md") {
-    // background-color: orange;
-    height: 10rem;
-  }
-
-  @include responsive("sm") {
-    height: 8rem;
+  &.withBoxShadow {
+    box-shadow: 0px 4px 6px -3px rgba(0, 0, 0, 0.1);
   }
 
   @include responsive("xlMb") {
@@ -55,64 +30,29 @@
     }
 
     .logoContainer {
-      padding: 2rem 2rem 2rem 11.2rem;
-
-      @include responsive("xxL") {
-        padding-left: 10.5rem;
-      }
-
-      @include responsive("xl") {
-        padding-left: 8.5rem;
-      }
-
-      @include responsive("laptopL") {
-        padding-left: 7.3rem;
-      }
+      margin-left: 11rem;
 
       @include responsive("laptop") {
-        padding-left: 6.3rem;
-      }
-
-      @include responsive("md") {
-        padding-left: 5rem;
+        margin-left: 7rem;
       }
 
       @include responsive("sm") {
-        padding-left: 2.5rem;
+        margin-left: 6rem;
       }
 
       @include responsive("xlMb") {
-        padding-left: 2rem;
+        margin-left: 2rem;
       }
 
       .logoImage {
         height: auto;
-        width: 25rem; /* MIRAR AQUI PARA LA IMAGEN */
-
-        @include responsive("sm") {
-          height: 5rem;
-          width: 14rem;
-        }
-
-        @include responsive("xlMb") {
-          height: 8rem;
-          width: 19rem;
-        }
-
-        @include responsive("mdMb") {
-          height: 10rem;
-          width: 23rem;
-        }
-
-        @include responsive("smMb") {
-          height: 8rem;
-          width: 18rem;
-        }
+        // width: 20rem;
       }
     }
 
     .navContainer {
       margin-left: auto;
+
       a {
         color: $color1;
         font-size: 1.8rem;
@@ -121,28 +61,16 @@
         text-decoration: none;
         font-weight: 700;
 
-        @include responsive("xxL") {
+        @include responsive("xl") {
           font-size: 1.5rem;
         }
 
-        @include responsive("xl") {
-          margin-right: 2.8rem;
-          font-size: 1.4rem;
+        @include responsive("laptop") {
+          margin-right: 2rem;
         }
 
         @include responsive("laptopL") {
-          margin-right: 2.6rem;
           font-size: 1.3rem;
-        }
-
-        @include responsive("md") {
-          margin-right: 2.4rem;
-          font-size: 1.2rem;
-        }
-
-        @include responsive("sm") {
-          margin-right: 1.5rem;
-          font-size: 1.2rem;
         }
       }
 
@@ -210,6 +138,11 @@
 
     @include responsive("mdUp") {
       display: none;
+    }
+
+    @include responsive("smMb") {
+      width: 2.7rem;
+      margin-right: 1rem;
     }
   }
 

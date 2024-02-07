@@ -1,43 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import styles from "./Navbar.module.scss"
 import Image from 'next/image'
+import Link from 'next/link'
 
 import logo from "@/assets/images/HTlogo.png"
-import Link from 'next/link'
 
 function Navbar() {
     const [isActive, setIsActive] = useState(false);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    // const [navbar, setNavbar] = useState(false);
-
-    // const changeBackground = () => {
-    //     console.log('Window scroll event detected:', window.scrollY);
-    //   };
-    
-    //   useEffect(() => {
-    //     console.log('Adding scroll event listener...');
-    //     window.addEventListener('scroll', changeBackground);
-    
-    //     // Simulate a scroll event to check if the function logs
-    //     console.log('Simulating scroll event...');
-    //     changeBackground();
-    
-    //     return () => {
-    //       console.log('Removing scroll event listener...');
-    //       window.removeEventListener('scroll', changeBackground);
-    //     };
-    //   }, []); 
-
-    const handleMenuClick = () => {
-        setIsDropdownOpen(false)
-        setIsActive((prevIsActive) => !prevIsActive);
-    };
-
-    const closeMobileNav = () => {
-        setIsActive(false);
-    };
-
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [scrollY, setScrollY] = useState(0);
+
+    //This function is to remove the flickering when scrolling
+    function throttle(func: Function, delay: number) {
+        let timeoutId: ReturnType<typeof setTimeout> | null = null;
+        return function (this: any, ...args: any[]) {
+            if (!timeoutId) {
+                timeoutId = setTimeout(() => {
+                    func.apply(this, args);
+                    timeoutId = null;
+                }, delay);
+            }
+        };
+    }
 
     useEffect(() => {
         const updateScreenSize = () => {
@@ -50,21 +34,29 @@ function Navbar() {
         return () => window.removeEventListener("resize", updateScreenSize);
     }, []);
 
-    // const changeBackground = () => {
-    //     console.log(window.scrollY)
-    // }
+    useEffect(() => {
+        const handleScroll = throttle(() => {
+            setScrollY(window.scrollY);
+        }, 100);
 
-    // window.addEventListener('scroll', changeBackground)
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const navbarHeight = scrollY > 0 ? 72 : 120;
+    const logoImageWidth = scrollY > 0 ? '15rem' : '25rem';
 
     return (
-        <div className={`${styles.main} ${styles.active}`}>
+        <div className={`${styles.main} ${styles.active}`} style={{ height: navbarHeight }}>
             <ul className={styles.container}>
                 <div className={styles.logoContainer}>
-                    <Link href="#homepage">
+                    <Link href="#">
                         <Image
                             src={logo}
                             alt="Logo"
                             className={styles.logoImage}
+                            style={{ width: logoImageWidth }}
                         />
                     </Link>
                 </div>
@@ -84,16 +76,16 @@ function Navbar() {
 
                 <button
                     className={`${styles.hamburger} ${isActive ? styles.isActive : ''}`}
-                    onClick={handleMenuClick}
+                    onClick={() => setIsActive(prevIsActive => !prevIsActive)}
                 >
                     <div className={styles.bar}></div>
                 </button>
                 <nav className={`${styles.mobileNav} ${isActive ? styles.isActive : ''}`}>
-                    <Link href="#funcionamiento" onClick={closeMobileNav}>Funcionamiento</Link>
-                    <Link href="#tratamiento" onClick={closeMobileNav}>Áreas de tratamiento</Link>
-                    <Link href="#equipo" onClick={closeMobileNav}>Quiénes somos</Link>
-                    <Link href="#faqs" onClick={closeMobileNav}>FAQ's</Link>
-                    <Link href="#contacto" onClick={closeMobileNav}>Contacto</Link>
+                    <Link href="#funcionamiento" onClick={() => setIsActive(false)}>Funcionamiento</Link>
+                    <Link href="#tratamiento" onClick={() => setIsActive(false)}>Áreas de tratamiento</Link>
+                    <Link href="#equipo" onClick={() => setIsActive(false)}>Quiénes somos</Link>
+                    <Link href="#faqs" onClick={() => setIsActive(false)}>FAQ's</Link>
+                    <Link href="#contacto" onClick={() => setIsActive(false)}>Contacto</Link>
                 </nav>
             </ul>
         </div>
