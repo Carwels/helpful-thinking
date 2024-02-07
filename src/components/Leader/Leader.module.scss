@@ -157,7 +157,23 @@
   }
 }
 
-.vision {
+.visionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comillaWrapper {
+  flex: 0 0 auto;
+}
+
+.visionTextContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.visionText {
   font-family: $font-nunito;
   color: $color2;
   font-size: 2rem;
@@ -165,7 +181,6 @@
   text-align: center;
   margin: 0 auto;
   max-width: 50rem;
-  margin-bottom: 5rem;
 
   @include responsive("laptop") {
     font-size: 1.9rem;
@@ -182,9 +197,15 @@
   }
 }
 
+.comillaImg {
+  height: 5rem;
+  width: 5rem;
+}
+
 .btnContainer {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 5rem;
 
   @include responsive("xs") {
     flex-direction: column;
