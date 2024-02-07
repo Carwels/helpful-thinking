@@ -48,7 +48,7 @@ function Navbar() {
     const logoImageWidth = scrollY > 0 ? '15rem' : '25rem';
 
     return (
-        <div className={`${styles.main} ${styles.active}`} style={{ height: navbarHeight }}>
+        <div className={`${styles.main} ${styles.active} ${scrollY > 0 ? styles.withBoxShadow : ''}`} style={{ height: navbarHeight }}>
             <ul className={styles.container}>
                 <div className={styles.logoContainer}>
                     <Link href="#">
