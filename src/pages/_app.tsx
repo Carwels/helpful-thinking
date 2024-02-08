@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from "next/head"
 import Navbar from '@/components/Navbar/Navbar'
-import { Providers } from './providers'
+import Providers from './providers'
 import { FormProvider } from '@/contexts/FormContext'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -13,10 +13,10 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Providers> {/* Wrap your components with the Providers component */}
         <FormProvider>
-        <Navbar />
-        <div className="content">
-          <Component {...pageProps} />
-        </div>
+          <Navbar />
+          <div className="content">
+            <Component {...pageProps} />
+          </div>
         </FormProvider>
       </Providers>
       {/* <Footer /> */}
