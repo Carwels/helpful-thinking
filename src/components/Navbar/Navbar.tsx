@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from "./Navbar.module.scss"
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion';
 
 import logo from "@/assets/images/HTlogo.png"
 
@@ -9,19 +10,6 @@ function Navbar() {
     const [isActive, setIsActive] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const [scrollY, setScrollY] = useState(0);
-
-    //This function is to remove the flickering when scrolling
-    function throttle(func: Function, delay: number) {
-        let timeoutId: ReturnType<typeof setTimeout> | null = null;
-        return function (this: any, ...args: any[]) {
-            if (!timeoutId) {
-                timeoutId = setTimeout(() => {
-                    func.apply(this, args);
-                    timeoutId = null;
-                }, delay);
-            }
-        };
-    }
 
     useEffect(() => {
         const updateScreenSize = () => {
@@ -35,9 +23,9 @@ function Navbar() {
     }, []);
 
     useEffect(() => {
-        const handleScroll = throttle(() => {
+        const handleScroll = () => {
             setScrollY(window.scrollY);
-        }, 100);
+        };
 
         window.addEventListener("scroll", handleScroll);
 
@@ -45,10 +33,16 @@ function Navbar() {
     }, []);
 
     const navbarHeight = scrollY > 0 ? 72 : 120;
-    const logoImageWidth = scrollY > 0 ? '15rem' : '25rem';
+    const logoImageWidth = scrollY > 0 ? '13rem' : '20rem';
 
     return (
-        <div className={`${styles.main} ${styles.active} ${scrollY > 0 ? styles.withBoxShadow : ''}`} style={{ height: navbarHeight }}>
+        <motion.div
+            className={`${styles.main} ${styles.active} ${scrollY > 0 ? styles.withBoxShadow : ''}`}
+            style={{ height: navbarHeight }}
+            initial={{ opacity: 0, y: -20 }} // Initial animation when component mounts
+            animate={{ opacity: 1, y: 0, height: navbarHeight }} // Animation when component is in view
+            transition={{ duration: 0.1 }} // Duration of animation
+        >
             <ul className={styles.container}>
                 <div className={styles.logoContainer}>
                     <Link href="#">
@@ -88,8 +82,9 @@ function Navbar() {
                     <Link href="#contacto" onClick={() => setIsActive(false)}>Contacto</Link>
                 </nav>
             </ul>
-        </div>
+        </motion.div>
     )
 }
+
 
 export default Navbar
