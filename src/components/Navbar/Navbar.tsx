@@ -64,7 +64,7 @@ function Navbar() {
                             <Link href="#faqs">FAQ's</Link>
                             <Link href="#contacto">Contacto</Link>
                         </nav>
-                        <button className={styles.startBtn}>Empezar</button>
+                        <motion.button whileTap={{ scale: 0.85 }} className={styles.startBtn}>Empezar</motion.button>
                     </React.Fragment>
                 )}
 
