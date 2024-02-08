@@ -3,10 +3,13 @@ import styles from "./Navbar.module.scss"
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion';
+import useGlobalForm from '@/hooks/useGlobalForm';
 
 import logo from "@/assets/images/HTlogo.png"
 
 function Navbar() {
+    const openForm = useGlobalForm();
+
     const [isActive, setIsActive] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const [scrollY, setScrollY] = useState(0);
@@ -64,7 +67,7 @@ function Navbar() {
                             <Link href="#faqs">FAQ's</Link>
                             <Link href="#contacto">Contacto</Link>
                         </nav>
-                        <motion.button whileTap={{ scale: 0.85 }} className={styles.startBtn}>Empezar</motion.button>
+                        <motion.button whileTap={{ scale: 0.85 }} className={styles.startBtn} onClick={openForm}>Empezar</motion.button>
                     </React.Fragment>
                 )}
 
