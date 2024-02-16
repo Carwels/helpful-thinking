@@ -67,7 +67,7 @@
     .left {
       margin-left: 11.2rem;
       max-width: 60rem;
-      line-height: 5.8rem;
+      // line-height: 5.8rem;
 
       @include responsive("xxL") {
         margin-left: 10.5rem;
@@ -189,7 +189,7 @@
       .startBtn {
         font-family: $font-nunito;
         display: inline-block;
-        padding: 0.1rem 2rem;
+        padding: 1.5rem 2rem;
         border: none;
         border-radius: 3rem;
         color: $colorWhite;

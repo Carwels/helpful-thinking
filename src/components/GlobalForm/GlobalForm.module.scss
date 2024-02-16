@@ -1,27 +1,29 @@
 @import "src/assets/scss/abstracts/_variables";
 
 .global-form-container {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    color: black;
-  }
-  
-  .global-form-container.visible {
-    display: block;
-  }
-  
-  .global-form-container form {
-    width: 300px;
-  }
-  
-  .global-form-container button {
-    margin-top: 10px;
-  }
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  color: black;
+//   min-height: 45rem;
+  min-width: 50rem;
+}
+
+.global-form-container.visible {
+  display: block;
+}
+
+.global-form-container form {
+  width: auto;
+}
+
+.global-form-container button {
+  margin-top: 10px;
+}
