@@ -9,17 +9,25 @@ import {
 
 interface FormOneProps {
     input: string;
-    handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handleInputChange: (fieldName: string, value: any) => void;
+    formData: any;
     isError: boolean;
     handleNext: () => void;
 }
 
-const FormOne: React.FC<FormOneProps> = ({ input, handleInputChange, isError, handleNext }) => {
-    const [value, setValue] = React.useState('1')
+const FormOne: React.FC<FormOneProps> = ({ input, handleInputChange, formData, isError, handleNext }) => {
+    const [value, setValue] = React.useState('')
+
+    const handleChange = (nextValue: string) => {
+        console.log("Selected value:", nextValue);
+        setValue(nextValue); // Update the local state value
+        handleInputChange("selectedValue", nextValue); // Update formData with the selected value
+    };
+
     return (
         <div className={styles.main}>
             <h1 className={styles.title}>1. Consulta</h1>
-            <RadioGroup onChange={setValue} value={value}>
+            <RadioGroup onChange={handleChange} value={value}>
                 <Stack spacing={1} direction='column'>
                     <Radio value='1'>
                         <span className={styles.customRadioLabel}>Por mi</span>

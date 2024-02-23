@@ -10,61 +10,118 @@ import {
     Radio,
     Stack,
     InputGroup,
-    InputLeftAddon
+    InputLeftAddon,
+    FormControl,
+    FormLabel,
+    FormHelperText,
+    FormErrorMessage,
 } from '@chakra-ui/react'
 
 
 interface FormTwoProps {
     input: string;
-    handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handleInputChange: (fieldName: string, value: any) => void;
+    formData: any;
     isError: boolean;
     handleNext: () => void;
     handleBack: () => void;
 }
 
-const FormTwo: React.FC<FormTwoProps> = ({ input, handleInputChange, isError, handleNext, handleBack }) => {
+const FormTwo: React.FC<FormTwoProps> = ({ input, handleInputChange, formData, isError, handleNext, handleBack }) => {
     const [selectedDay, setSelectedDay] = useState('');
     const [selectedMonth, setSelectedMonth] = useState('');
     const [selectedYear, setSelectedYear] = useState('');
+    const [selectedGender, setSelectedGender] = useState('');
     const [selectedCountry, setSelectedCountry] = useState('');
-    const [selectedPhoneCountry, setSelectedPhoneCountry] = useState('');
     const [selectedLanguage, setSelectedLanguage] = useState('');
     const [selectedResidenceCountry, setSelectedResidenceCountry] = useState('');
+    const [email, setEmail] = useState('');
+    const [selectedPhoneCountry, setSelectedPhoneCountry] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
 
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        console.log('Input Name:', name);
+        console.log('Input Value:', value);
+        handleInputChange(name, value);
+    };
+
     const handleDayChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedDayValue = event.target.value;
+        console.log('Selected Day:', selectedDayValue);
         setSelectedDay(event.target.value);
+        handleInputChange('Day', selectedDayValue);
     };
 
     const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedMonthValue = event.target.value;
+        console.log('Selected Month:', selectedMonthValue);
         setSelectedMonth(event.target.value);
+        handleInputChange('Month', selectedMonthValue);
     };
 
     const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedYear(event.target.value);
+        const selectedYearValue = event.target.value;
+        console.log('Selected Year:', selectedYearValue);
+        setSelectedYear(selectedYearValue);
+        handleInputChange('Year', selectedYearValue);
     };
 
     const currentYear = new Date().getFullYear();
     const years = Array.from({ length: currentYear - 1919 }, (_, index) => String(1920 + index));
 
+    const handleGenderChange = (value: string) => {
+        console.log('Selected Género:', value); 
+        setSelectedGender(value); // Update the selected gender in local state
+        handleInputChange('selectedGender', value); // Update formData with the selected gender
+    };
+
+    //Nationality
     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedCountryValue = event.target.value;
+        console.log('Selected Nacionalidad:', selectedCountryValue);
+        setSelectedCountry(selectedCountryValue);
+        handleInputChange('Nationality', selectedCountryValue); // Update formData with the selected country
         setSelectedCountry(event.target.value);
     };
 
     const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedLanguage(event.target.value);
-    };
-
-    const handlePhoneCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedPhoneCountry(event.target.value);
-    };
-
-    const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPhoneNumber(event.target.value);
+        const selectedLanguage = event.target.value;
+        console.log('Selected language:', selectedLanguage); // Log the selected language
+        handleInputChange('Language', selectedLanguage); // Update formData with the selected language
+        setSelectedLanguage(selectedLanguage);
     };
 
     const handleResidenceCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedResidenceCountry(event.target.value);
+        const selectedResidenceCountry = event.target.value;
+        console.log('Selected residence country:', selectedResidenceCountry); 
+        handleInputChange('ResidenceCountry', selectedResidenceCountry); // Update formData with the selected residence country
+        setSelectedResidenceCountry(selectedResidenceCountry); // Update the local state with the selected residence country
+    };
+
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const emailValue = e.target.value;
+        console.log('Email value:', emailValue);
+        handleInputChange('Email', emailValue); // Update formData with the email value
+        setEmail(emailValue); // Update the local state with the email value
+    };
+
+    //Phone prefix and number
+    const handlePhoneCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedCountry = event.target.value;
+        console.log('Selected Phone Country:', selectedCountry);
+        setSelectedPhoneCountry(selectedCountry); // Update the selected phone country in local state
+        // Update the formData with the selected phone country
+        handleInputChange('PhonePrefix', selectedCountry);
+    };
+
+    const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const enteredPhoneNumber = event.target.value;
+        console.log('Entered Phone Number:', enteredPhoneNumber);
+        setPhoneNumber(enteredPhoneNumber); // Update the phone number in local state
+        // Update the formData with the entered phone number
+        handleInputChange('phone', enteredPhoneNumber);
     };
 
     return (
@@ -74,10 +131,10 @@ const FormTwo: React.FC<FormTwoProps> = ({ input, handleInputChange, isError, ha
                 Nombre <span className={styles.redAsterisk}>*</span>
             </div>
             <div className={styles.inputWrapper}>
-                <Input placeholder='Nombre' />
+                <Input placeholder='Nombre' onChange={handleChange} name="nombre" />
             </div>
             <div className={styles.inputWrapper}>
-                <Input placeholder='Apellidos' />
+                <Input placeholder='Apellidos' onChange={handleChange} name="apellidos" />
             </div>
             <div>
                 <div className={styles.subtitle}>
@@ -108,7 +165,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ input, handleInputChange, isError, ha
             <div className={styles.subtitle}>
                 Género con el que te identificas <span className={styles.redAsterisk}>*</span>
             </div>
-            <RadioGroup defaultValue='' onChange={(value) => console.log(value)}>
+            <RadioGroup defaultValue={selectedGender} onChange={handleGenderChange}>
                 <Stack spacing={1} direction='column'>
                     <Radio value='Hombre'>
                         <span className={styles.customRadioLabel}>Hombre</span>
@@ -136,7 +193,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ input, handleInputChange, isError, ha
             >
                 <option value="">Seleccionar país</option>
                 {countriesData.map((country: any) => (
-                    <option key={country.code} value={country.dial_code}>
+                    <option key={country.code} value={country.code}>
                         {`${country.name_es}`}
                     </option>
                 ))}
@@ -170,7 +227,22 @@ const FormTwo: React.FC<FormTwoProps> = ({ input, handleInputChange, isError, ha
             <div className={styles.subtitle}>
                 Correo electrónico <span className={styles.redAsterisk}>*</span>
             </div>
-            <Input placeholder="ejemplo@helpfulthinking.com" />
+            <FormControl isInvalid={isError}>
+                <FormLabel>Correo electrónico</FormLabel>
+                <Input
+                    type='email'
+                    placeholder='ejemplo@helpfulthinking.com'
+                    value={email}
+                    onChange={handleEmailChange}
+                />
+                {/* {isError ? (
+                    <FormErrorMessage>El correo electrónico es obligatorio.</FormErrorMessage>
+                ) : (
+                    <FormHelperText>
+
+                    </FormHelperText>
+                )} */}
+            </FormControl>
             <div className={styles.subtitle}>
                 Teléfono <span className={styles.redAsterisk}>*</span>
             </div>
@@ -184,7 +256,7 @@ const FormTwo: React.FC<FormTwoProps> = ({ input, handleInputChange, isError, ha
                         <option value="">Selecciona</option>
                         {countriesData.map((country: any) => (
                             <option key={country.code} value={country.dial_code}>
-                                {`${country.emoji} ${country.name_es} (${country.dial_code})`}
+                                {`${country.emoji} ${country.code} (${country.dial_code})`}
                             </option>
                         ))}
                     </select>
